@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,11 +11,7 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
-		CE1133052DC0E86B001B3623 /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1133042DC0E86B001B3623 /* TextInputViewController.swift */; };
 		CE1133102DC10DDB001B3623 /* DatePickerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11330F2DC10DBF001B3623 /* DatePickerViewFactory.swift */; };
-		CEDC2C812DC0D9DE009ABB78 /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC2C802DC0D9DE009ABB78 /* TextInputView.swift */; };
-		CEFD3A272DC1414D00C97B35 /* NativeDateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD3A262DC1414B00C97B35 /* NativeDateHelper.swift */; };
-		CEFD3A292DC14ACA00C97B35 /* TextInputViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD3A282DC14ABE00C97B35 /* TextInputViewFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +22,12 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB3632DC29227652001CCB65 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		CE1133042DC0E86B001B3623 /* TextInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
 		CE11330F2DC10DBF001B3623 /* DatePickerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewFactory.swift; sourceTree = "<group>"; };
-		CEDC2C802DC0D9DE009ABB78 /* TextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
-		CEFD3A262DC1414B00C97B35 /* NativeDateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeDateHelper.swift; sourceTree = "<group>"; };
-		CEFD3A282DC14ABE00C97B35 /* TextInputViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		CEFD3A2C2DC1547B00C97B35 /* TextInput */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TextInput; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B92378962B6B1156000C7307 /* Frameworks */ = {
@@ -80,16 +76,13 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				CEFD3A282DC14ABE00C97B35 /* TextInputViewFactory.swift */,
-				CEFD3A262DC1414B00C97B35 /* NativeDateHelper.swift */,
+				CEFD3A2C2DC1547B00C97B35 /* TextInput */,
 				CE11330F2DC10DBF001B3623 /* DatePickerViewFactory.swift */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
-				CEDC2C802DC0D9DE009ABB78 /* TextInputView.swift */,
-				CE1133042DC0E86B001B3623 /* TextInputViewController.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -117,6 +110,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				CEFD3A2C2DC1547B00C97B35 /* TextInput */,
 			);
 			name = iosApp;
 			packageProductDependencies = (
@@ -200,13 +196,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE1133052DC0E86B001B3623 /* TextInputViewController.swift in Sources */,
-				CEFD3A292DC14ACA00C97B35 /* TextInputViewFactory.swift in Sources */,
 				CE1133102DC10DDB001B3623 /* DatePickerViewFactory.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
-				CEFD3A272DC1414D00C97B35 /* NativeDateHelper.swift in Sources */,
-				CEDC2C812DC0D9DE009ABB78 /* TextInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

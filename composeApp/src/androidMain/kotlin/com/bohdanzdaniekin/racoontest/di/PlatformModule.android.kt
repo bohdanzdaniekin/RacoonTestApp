@@ -6,10 +6,9 @@ import com.bohdanzdaniekin.racoontest.utils.ActivityProvider
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
-actual val platformModule
-    get() = module {
-        single<ActivityProvider> { (androidApplication() as RacoonTestApplication).activityProvider }
-        factory {
-            Navigator(activityProvider = get())
-        }
+actual val platformModule = module {
+    single<ActivityProvider> { (androidApplication() as RacoonTestApplication).activityProvider }
+    factory {
+        Navigator(activityProvider = get())
     }
+}

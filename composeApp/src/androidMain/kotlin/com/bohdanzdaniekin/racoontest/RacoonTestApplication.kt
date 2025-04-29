@@ -1,6 +1,7 @@
 package com.bohdanzdaniekin.racoontest
 
 import android.app.Application
+import com.bohdanzdaniekin.racoontest.di.appModule
 import com.bohdanzdaniekin.racoontest.di.initKoin
 import com.bohdanzdaniekin.racoontest.utils.ActivityProvider
 import org.koin.android.ext.koin.androidContext
@@ -15,6 +16,7 @@ class RacoonTestApplication : Application() {
         initKoin {
             androidLogger()
             androidContext(this@RacoonTestApplication)
+            modules(appModule)
         }
     }
 }
