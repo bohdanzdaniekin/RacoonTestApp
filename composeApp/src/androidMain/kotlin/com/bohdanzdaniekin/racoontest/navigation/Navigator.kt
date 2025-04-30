@@ -1,14 +1,10 @@
 package com.bohdanzdaniekin.racoontest.navigation
 
-import android.app.DatePickerDialog
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.commit
-import com.bohdanzdaniekin.racoontest.ext.now
 import com.bohdanzdaniekin.racoontest.screen.TextInputFragment
 import com.bohdanzdaniekin.racoontest.utils.ActivityProvider
 import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlinx.datetime.LocalDate
-import kotlinx.datetime.number
 import kotlin.coroutines.resume
 
 actual class Navigator(

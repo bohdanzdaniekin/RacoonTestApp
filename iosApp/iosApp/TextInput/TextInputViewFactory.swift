@@ -9,9 +9,7 @@ class TextInputViewFactory: NativeTextInputFactory {
         initialText: String?,
         onSubmit: @escaping (String?) -> Void
     ) -> UIViewController {
-        return TextInputViewController.TextInputViewController(
-            initialText: initialText ?? "",
-            onSubmit: onSubmit
-        )
+        let view = TextInputView(initialText: initialText ?? "", onSubmit: onSubmit)
+        return UIHostingController(rootView: view)
     }
 }

@@ -46,10 +46,10 @@ fun TextInputScreen(
                     .fillMaxWidth()
                     .padding(horizontal = 24.dp),
                 keyboardOptions = KeyboardOptions.Default.copy(
-                    imeAction = ImeAction.Send
+                    imeAction = ImeAction.Done
                 ),
                 keyboardActions = KeyboardActions(
-                    onSend = {
+                    onDone = {
                         onSubmit()
                     }
                 ),
