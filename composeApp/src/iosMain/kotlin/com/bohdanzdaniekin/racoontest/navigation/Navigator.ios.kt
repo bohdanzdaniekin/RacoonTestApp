@@ -21,19 +21,6 @@ actual class Navigator(
                     continuation.resume(result)
                 }
             )
-//            val hosting = TextInputViewController.TextInputViewController(
-//                initialText = initialText,
-//                onSubmit = { result: String? ->
-//                    controller.dismissViewControllerAnimated(true, null)
-//                    continuation.resume(result)
-//                }
-//            )
-//            TextViewControllerKt
-//            val hosting = UIHostingController(rootView = TextInputView { result ->
-//                controller?.dismissViewControllerAnimated(true, null)
-//                continuation.resume(result)
-//            })
-//
             controller.presentViewController(hosting, true, null)
         }
     }
