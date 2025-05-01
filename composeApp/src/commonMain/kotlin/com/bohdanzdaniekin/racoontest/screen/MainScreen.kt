@@ -19,10 +19,6 @@ fun MainScreen(modifier: Modifier = Modifier) {
 
     viewModel.effect.collectAsEffectWithLifecycle { effect ->
         when (effect) {
-            is MainScreenEffect.ShowDatePicker -> {
-                /*val date = navigator.pickDate(initialDate = effect.initialDate)
-                viewModel.onEvent(MainScreenEvent.OnDatePicked(date))*/
-            }
             is MainScreenEffect.ShowTextInput -> {
                 val text = navigator.pickText(initialText = effect.initialInput)
                 viewModel.onEvent(MainScreenEvent.OnTextSubmitted(text))
