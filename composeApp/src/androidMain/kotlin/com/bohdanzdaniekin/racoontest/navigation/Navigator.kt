@@ -1,6 +1,8 @@
 package com.bohdanzdaniekin.racoontest.navigation
 
+import androidx.activity.addCallback
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentResultListener
 import androidx.fragment.app.commit
 import com.bohdanzdaniekin.racoontest.screen.TextInputFragment
 import com.bohdanzdaniekin.racoontest.utils.ActivityProvider
@@ -25,17 +27,34 @@ actual class Navigator(
             val requestKey = TextInputFragment.KEY_REQUEST
             val fragment = TextInputFragment.newInstance(initialText)
 
-            activity.supportFragmentManager.setFragmentResultListener(
-                requestKey,
-                activity
-            ) { _, bundle ->
+            val listener = FragmentResultListener { _, bundle ->
                 val result = bundle.getString(TextInputFragment.KEY_TEXT).orEmpty()
                 continuation.resume(result)
             }
+            activity
+                .supportFragmentManager
+                .setFragmentResultListener(requestKey, activity, listener)
+
+            val onBackPressedCallback = activity
+                .onBackPressedDispatcher
+                .addCallback(fragment) {
+                    activity
+                        .supportFragmentManager
+                        .popBackStack()
+                    continuation.resume(null)
+                }
 
             activity.supportFragmentManager.commit {
                 replace(android.R.id.content, fragment)
                 addToBackStack(null)
+            }
+
+            continuation.invokeOnCancellation {
+                activity
+                    .supportFragmentManager
+                    .clearFragmentResultListener(TextInputFragment.KEY_REQUEST)
+
+                onBackPressedCallback.remove()
             }
         }
     }
