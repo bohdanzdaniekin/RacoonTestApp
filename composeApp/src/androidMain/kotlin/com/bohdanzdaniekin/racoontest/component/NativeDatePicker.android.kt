@@ -1,5 +1,6 @@
 package com.bohdanzdaniekin.racoontest.component
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -23,22 +24,24 @@ actual fun NativeDatePicker(
         initialSelectedDateMillis = initialDate
     )
 
-    DatePickerDialog(
-        onDismissRequest = onDismiss,
-        confirmButton = {
-            TextButton(onClick = {
-                onDateSelected(state.selectedDateMillis)
-            }) {
-                Text("OK")
+    AnimatedVisibility(true) {
+        DatePickerDialog(
+            onDismissRequest = onDismiss,
+            confirmButton = {
+                TextButton(onClick = {
+                    onDateSelected(state.selectedDateMillis)
+                }) {
+                    Text("OK")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = onDismiss) {
+                    Text("Cancel")
+                }
             }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Cancel")
-            }
+        ) {
+            DatePicker(state = state)
         }
-    ) {
-        DatePicker(state = state)
     }
 }
 

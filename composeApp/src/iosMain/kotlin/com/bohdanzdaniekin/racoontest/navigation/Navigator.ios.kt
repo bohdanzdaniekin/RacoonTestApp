@@ -3,6 +3,7 @@ package com.bohdanzdaniekin.racoontest.navigation
 import com.bohdanzdaniekin.racoontest.NativeTextInputFactory
 import kotlinx.coroutines.suspendCancellableCoroutine
 import platform.UIKit.UIApplication
+import platform.UIKit.presentationController
 import kotlin.coroutines.resume
 
 actual class Navigator(
@@ -21,7 +22,14 @@ actual class Navigator(
                     continuation.resume(result)
                 }
             )
+            hosting.presentationController?.delegate = DismissDelegate {
+                continuation.resume(null)
+            }
             controller.presentViewController(hosting, true, null)
+
+            continuation.invokeOnCancellation {
+                controller.dismissViewControllerAnimated(true, null)
+            }
         }
     }
 }

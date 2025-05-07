@@ -3,8 +3,8 @@ android-compileSdk = "35"
 android-minSdk = "24"
 android-targetSdk = "35"
 
-agp = "8.9.2"
-compose-multiplatform = "1.7.3"
+agp = "8.10.0"
+compose-multiplatform = "1.8.0"
 kotlin = "2.1.20"
 
 kotlinx-datetime = "0.6.2"
@@ -16,7 +16,7 @@ androidx-activity = "1.10.1"
 androidx-appcompat = "1.7.0"
 androidx-constraintlayout = "2.2.1"
 
-koin = "4.0.2"
+koin = "4.0.4"
 
 junit = "4.13.2"
 androidx-test-junit = "1.2.1"

@@ -1,6 +1,13 @@
 package com.bohdanzdaniekin.racoontest.screen
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.VisibilityThreshold
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.expandIn
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -19,6 +26,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import com.bohdanzdaniekin.racoontest.component.NativeDatePicker
 import com.bohdanzdaniekin.racoontest.ext.fromEpochMillis
@@ -111,7 +119,29 @@ fun MainScreenContent(
             }
         }
     }
-    AnimatedVisibility(showDatePicker,) {
+    AnimatedVisibility(
+        visible = showDatePicker,
+        enter = fadeIn(
+            animationSpec = spring(
+                stiffness = Spring.StiffnessMedium
+            )
+        ) + expandIn(
+            spring(
+                stiffness = Spring.StiffnessMedium,
+                visibilityThreshold = IntSize.VisibilityThreshold
+            )
+        ),
+        exit = fadeOut(
+            animationSpec = spring(
+                stiffness = Spring.StiffnessMedium
+            )
+        ) + shrinkOut(
+            spring(
+                stiffness = Spring.StiffnessMedium,
+                visibilityThreshold = IntSize.VisibilityThreshold
+            )
+        )
+    ) {
         NativeDatePicker(
             initialDate = currentDate?.toEpochMillis(),
             onDismiss = onDatePickerDismissed,

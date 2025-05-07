@@ -6,7 +6,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.flow.updateAndGet
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class MainScreenViewModel : ViewModel() {
@@ -20,10 +20,7 @@ class MainScreenViewModel : ViewModel() {
     fun onEvent(event: MainScreenEvent) {
         when (event) {
             is MainScreenEvent.OnPickDateClicked -> {
-//                emitEffect(
-//                    MainScreenEffect.ShowDatePicker(initialDate = state.value.date)
-//                )
-                _state.updateAndGet { state ->
+                _state.update { state ->
                     state.copy(isDatePickerVisible = true)
                 }
             }
@@ -33,17 +30,17 @@ class MainScreenViewModel : ViewModel() {
                 )
             }
             is MainScreenEvent.OnDatePicked -> {
-                _state.updateAndGet { state ->
+                _state.update { state ->
                     state.copy(date = event.date, isDatePickerVisible = false)
                 }
             }
             MainScreenEvent.OnPickerDismissed -> {
-                _state.updateAndGet { state ->
+                _state.update { state ->
                     state.copy(isDatePickerVisible = false)
                 }
             }
             is MainScreenEvent.OnTextSubmitted -> {
-                _state.updateAndGet { state ->
+                _state.update { state ->
                     state.copy(text = event.text)
                 }
             }
